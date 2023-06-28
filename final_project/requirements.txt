@@ -4,3 +4,9 @@ ibm-watson==4.4.1
 python-dotenv==0.13.0
 pyJWT==1.7.1
 deep_translator==1.11.1
+googletrans==4.0.0-rc.1
+ 
+
+
+
+
