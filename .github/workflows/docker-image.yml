@@ -17,6 +17,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ibmlearner_translation_app:$(date +%s)
     env:
-      INFINITY_STELL: ${{ secrets.GITHUB_TOKEN }}
+      JINX_BOHR: ${{ secrets.GITHUB_TOKEN }}
     
     
