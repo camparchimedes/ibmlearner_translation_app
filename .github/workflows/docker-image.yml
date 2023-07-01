@@ -17,6 +17,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ibmlearner_translation_app:$(date +%s)
     env:
-      CR_PAT: ${{ secrets.GITHUB_TOKEN }}
+      INFINITY_STELL: ${{ secrets.GITHUB_TOKEN }}
     
     
