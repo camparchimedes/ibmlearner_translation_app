@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag flask-docker-demo-translator:$(date +%s)
+      run: docker build . --file Dockerfile --tag ibmlearner_translation_app:$(date +%s)
