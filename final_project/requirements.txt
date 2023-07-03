@@ -3,6 +3,7 @@ Flask-WTF
 python-dotenv
 pyJWT
 googletrans
+machinetranslation
  
 
 
