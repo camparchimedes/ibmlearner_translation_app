@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Pushes the Docker image
         env:
-          GH_TOKEN: ${{ secrets.JINX_BOHR }}
+          JINX_BOHR: ${{ secrets.JINX_BOHR }}
         run: docker push ghcr.io/camparchimedes/ibmlearner_translation_app:latest
 
     
