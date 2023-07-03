@@ -15,7 +15,7 @@ jobs:
       - name: Login to GitHub Container Registry
         env:
           JINX_BOHR: ${{ secrets.JINX_BOHR }}
-        run: echo ghcr.io ${{ secrets.JINX_BOHR }} | docker login ghcr.io -u camparchimedes --password-stdin
+        run: echo ghcr.io ${{ secrets.JINX_BOHR }} | docker login ghcr.io -u camparchimedes --password-a5zty9ifyszangt
       - name: Build and push Docker image
         run: docker push ghcr.io/camparchimedes/ibmlearner_translation_app:latest
         
