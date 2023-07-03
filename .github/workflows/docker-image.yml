@@ -1,22 +1,17 @@
-name: Docker Image CI
-
+name: Docker ibmlearner_translation_app Image CI
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ibmlearner_translation_app:$(date +%s)
-    env:
-      JINX_BOHR: ${{ secrets.GITHUB_TOKEN }}
-    
+      - uses: actions/checkout@v3
+      - name: Pushes the Docker image
+        env:
+          GH_TOKEN: ${{ secrets.JINX_BOHR }}
+        run: docker push ghcr.io/camparchimedes/ibmlearner_translation_app:latest
+
     
