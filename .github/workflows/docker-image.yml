@@ -1,24 +1,33 @@
 name: Docker ibmlearner_translation_app Image CI
-run-name: ${{ github.actor }} is pushing it
+
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
+
+env:
+  GITHUB_TOKEN: ${{ secrets.JINX_BOHR }}
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Login to GitHub Container Registry
-        env:
-          GITHUB_TOKEN: ${{ secrets.JINX_BOHR }}
-        
-      - name: Push Docker image
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Pushes the Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/camparchimedes/ibmlearner_translation_app:latest
+          registry: ghcr.io
+          username: camparchimedes
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if logged in
         run: |
-            echo $GITHUB_TOKEN | docker login ghcr.io -u camparchimedes --password-stdin 
-            docker push ghcr.io/camparchimedes/ibmlearner_translation_app:latest
-        
-        
+          github-cli whoami
+
+
