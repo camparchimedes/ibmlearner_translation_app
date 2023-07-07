@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
